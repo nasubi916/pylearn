@@ -9,7 +9,12 @@ readme = "README.md"
 python = "^3.12"
 pandas = "^2.2.2"
 matplotlib = "^3.8.4"
+seaborn = "^0.13.2"
+numpy = "^1.26.4"
 
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.4"
 
 [build-system]
 requires = ["poetry-core"]

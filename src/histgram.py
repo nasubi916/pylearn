@@ -1,5 +1,6 @@
 # ライブラリのインポート
 import pandas as pd
+import seaborn as sbn
 import matplotlib.pyplot as plt
 
 # やりたいこと→boostedのデータからどの時間帯が一番{タグの名前}をやっているかを調べる
@@ -64,10 +65,12 @@ df["End time hour"] = df["End time hour"].astype(int)
 df["Start time hour"] = df["Start time hour"].astype(int)
 plt.legend(loc="upper left")
 
-#! 0~24時間だけを表示できなかった
 # ヒストグラムを0~24時間で表示
 plt.hist(df["Start time hour"], bins=24, range=(0, 24), alpha=0.5, label="Start time")
 plt.hist(df["End time hour"], bins=24, range=(0, 24), alpha=0.5, label="End time")
+
+# 0~24時間だけを表示できなかった ↓で解決
+plt.xlim(0, 24)
 
 plt.ylabel("count")
 plt.xlabel("hour")
